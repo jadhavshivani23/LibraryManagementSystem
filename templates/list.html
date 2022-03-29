@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2>Book List</h2>
+
+<table border="1" style="width: 80%;" align="center">
+    <tr>
+        <th>Sr.No</th>
+        <th>Book Name</th>
+        <th>Author</th>
+        <th>Price</th>
+        <th colspan="2">Actions</th>
+    </tr>
+    {% for book in books %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{book.Book_Name}}</td>
+        <td>{{book.Author}}</td>
+        <td>{{book.Book_Price}}</td>
+        {% if request.user.is_superuser %}
+        <td><a href="/library/edit/{{book.Book_ID}}">Edit</a></td>
+        <td><a href="/library/delete/{{book.Book_ID}}">Delete</a></td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+{% endblock body %}

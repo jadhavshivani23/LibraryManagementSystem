@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<form method="post" action="/library/register">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <th>
+                {{form.as_table}}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <input type="submit" value="register" class="btn btn-primary">
+        </tr>
+    </table>
+</form>
+{% endblock body %}

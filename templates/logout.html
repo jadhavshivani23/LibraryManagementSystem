@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Login Here
+{% endblock title %}
+
+
+{% block body %}
+    <form action="/library/logout/" method="post" novalidate>
+        {% csrf_token %}
+        <table>
+            {{loginform.as_table}}
+            <tr>
+                <td colspan="2" align="right">
+                    <input type="submit" value="Logout">
+                </td>
+            </tr>
+        </table>
+    </form>
+{% endblock body %}
+    
